@@ -1,5 +1,5 @@
 import "./style.css";
-import OpenWeatherApiWrapper from "./modals/openweather-api-wrapper";
+import OpenWeatherApiWrapper from "./models/openweather-api-wrapper";
 
 const openWeatherApiWrapper = new OpenWeatherApiWrapper(
   "1adba23387b35ccba4bd08e59faec2cf"

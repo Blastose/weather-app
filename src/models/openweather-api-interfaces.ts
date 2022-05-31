@@ -131,4 +131,4 @@ interface Alerts {
   tags: string[];
 }
 
-export { Geocoding, OneCall };
+export { Geocoding, OneCall, Weather };
