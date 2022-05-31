@@ -1,5 +1,5 @@
 import LocationParser from "./location-parser";
-import { Geocoding } from "./openweather-api-interfaces";
+import { Geocoding, OneCall } from "./openweather-api-interfaces";
 
 class OpenWeatherApiWrapper {
   apiKey: string;
@@ -37,7 +37,7 @@ class OpenWeatherApiWrapper {
   async getOneCallData(
     latitude: number,
     longitude: number
-  ): Promise<object | undefined> {
+  ): Promise<OneCall | undefined> {
     try {
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid=${this.apiKey}`,

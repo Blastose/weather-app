@@ -17,10 +17,10 @@ interface OneCall {
   timezone_offset: number;
 
   current: Current;
-  hourly: Hourly;
-  minutely?: Minutely;
-  daily: Daily;
-  alerts?: Alerts;
+  hourly: Hourly[];
+  minutely?: Minutely[];
+  daily: Daily[];
+  alerts?: Alerts[];
 }
 
 interface Current {
@@ -39,7 +39,7 @@ interface Current {
   wind_deg: number;
   wind_gust?: number;
 
-  weather: Weather;
+  weather: Weather[];
   rain: Rain;
   snow: Snow;
 }
@@ -60,7 +60,7 @@ interface Hourly {
   pop: number;
   rain: Rain;
   snow: Snow;
-  weather: Weather;
+  weather: Weather[];
 }
 
 interface Minutely {
@@ -86,7 +86,7 @@ interface Daily {
   wind_deg: number;
   wind_gust?: number;
   pop: number;
-  weather: Weather;
+  weather: Weather[];
   rain?: number;
   snow?: number;
 }
@@ -128,7 +128,7 @@ interface Alerts {
   start: number;
   end: number;
   description: string;
-  tags: string;
+  tags: string[];
 }
 
 export { Geocoding, OneCall };
