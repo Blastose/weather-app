@@ -5,6 +5,9 @@ import WeatherCurrentController from "./controllers/weather-current-controller";
 import WeatherCurrent from "./models/weather-current";
 import WeatherCurrentView from "./views/weather-current-view";
 import LocationInputView from "./views/weather-location-input-view";
+import WeatherDailyList from "./models/weather-daily-list";
+import WeatherDailyView from "./views/weather-daily-view";
+import WeatherDailyController from "./controllers/weather-daily-controller";
 
 const openWeatherApiWrapper = new OpenWeatherApiWrapper(
   "1adba23387b35ccba4bd08e59faec2cf"
@@ -24,9 +27,17 @@ const weatherCurrentController = new WeatherCurrentController(
 
 const locationInputView = new LocationInputView();
 
+const weatherDailyListModel = new WeatherDailyList();
+const weatherDailyView = new WeatherDailyView();
+const weatherDailyController = new WeatherDailyController(
+  weatherDailyListModel,
+  weatherDailyView
+);
+
 const weatherAppController = new WeatherAppController(
   openWeatherApiWrapper,
   weatherCurrentController,
-  locationInputView
+  locationInputView,
+  weatherDailyController
 );
 weatherAppController.setup();

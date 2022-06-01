@@ -3,21 +3,26 @@ import LocationInputView from "../views/weather-location-input-view";
 import WeatherCurrentController from "./weather-current-controller";
 import { fromUnixTime } from "date-fns";
 import WeatherCurrent from "../models/weather-current";
-import { OneCall } from "../models/openweather-api-interfaces";
+import { OneCall, Daily } from "../models/openweather-api-interfaces";
+import WeatherDailyController from "./weather-daily-controller";
+import WeatherDaily from "../models/weather-daily";
 
 class WeatherAppController {
   openWeatherApiWrapper: OpenWeatherApiWrapper;
   weatherCurrentController: WeatherCurrentController;
   locationInputView: LocationInputView;
+  weatherDailyController: WeatherDailyController;
 
   constructor(
     openWeatherApiWrapper: OpenWeatherApiWrapper,
     weatherCurrentController: WeatherCurrentController,
-    locationInputView: LocationInputView
+    locationInputView: LocationInputView,
+    weatherDailyController: WeatherDailyController
   ) {
     this.openWeatherApiWrapper = openWeatherApiWrapper;
     this.weatherCurrentController = weatherCurrentController;
     this.locationInputView = locationInputView;
+    this.weatherDailyController = weatherDailyController;
   }
 
   setup() {
@@ -26,6 +31,12 @@ class WeatherAppController {
     this.weatherCurrentController.weatherCurrentModel.bindOnUpdate(
       this.weatherCurrentController.weatherCurrentView.displayWeatherInfo.bind(
         this.weatherCurrentController.weatherCurrentView
+      )
+    );
+
+    this.weatherDailyController.weatherDailyModel.bindOnUpdate(
+      this.weatherDailyController.weatherDailyView.displayDailyInfo.bind(
+        this.weatherDailyController.weatherDailyView
       )
     );
   }
@@ -43,6 +54,7 @@ class WeatherAppController {
       if (weatherData) {
         console.log(weatherData);
         this.setCurrentWeatherInfo(weatherData);
+        this.setDailyWeatherInfo(weatherData);
       }
     }
   }
@@ -58,6 +70,27 @@ class WeatherAppController {
         weatherData.current.weather[0]
       )
     );
+  }
+
+  async setDailyWeatherInfo(weatherData: OneCall) {
+    this.weatherDailyController.weatherDailyModel.update(
+      this.createWeatherDailyListFromData(weatherData.daily)
+    );
+  }
+
+  createWeatherDailyListFromData(data: Daily[]) {
+    const list = [] as WeatherDaily[];
+    data.forEach((item) => {
+      list.push(
+        new WeatherDaily(
+          fromUnixTime(item.dt),
+          item.temp.max,
+          item.temp.min,
+          item.weather[0]
+        )
+      );
+    });
+    return list;
   }
 }
 
