@@ -20,7 +20,12 @@ class WeatherDailyView {
     return card;
   }
 
+  clearView() {
+    this.view.replaceChildren();
+  }
+
   displayDailyInfo(weatherDailyList: WeatherDailyList) {
+    this.clearView();
     weatherDailyList.weatherDailyList.forEach((weatherDaily) => {
       const card = this.makeDailyCard(weatherDaily);
       this.view.appendChild(card);
