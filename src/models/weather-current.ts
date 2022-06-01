@@ -7,6 +7,8 @@ class WeatherCurrent {
   windSpeed: number;
   weather: Weather;
 
+  onUpdate?: (weatherCurrent: WeatherCurrent) => void;
+
   constructor(
     time: Date,
     temp: number,
@@ -19,6 +21,22 @@ class WeatherCurrent {
     this.humidity = humidity;
     this.windSpeed = windSpeed;
     this.weather = weather;
+  }
+
+  update(newWeatherCurrent: WeatherCurrent) {
+    this.time = newWeatherCurrent.time;
+    this.temp = newWeatherCurrent.temp;
+    this.humidity = newWeatherCurrent.humidity;
+    this.windSpeed = newWeatherCurrent.windSpeed;
+    this.weather = newWeatherCurrent.weather;
+
+    if (this.onUpdate) {
+      this.onUpdate(this);
+    }
+  }
+
+  bindOnUpdate(callback: (weatherCurrent: WeatherCurrent) => void) {
+    this.onUpdate = callback;
   }
 }
 

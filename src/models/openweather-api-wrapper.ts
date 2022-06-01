@@ -19,14 +19,12 @@ class OpenWeatherApiWrapper {
       if (!response.ok) {
         throw new Error("Fetch response returned not ok");
       }
-      console.log(response);
       const jsonData = await response.json();
 
       // The api call returns an array of possible geocoding results for the given location
       if (jsonData.length === 0) {
         throw new Error("Unable to locate location");
       }
-      console.log(jsonData);
       return jsonData[0];
     } catch (err) {
       console.error(err);
