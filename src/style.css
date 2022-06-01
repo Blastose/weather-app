@@ -6,4 +6,5 @@ body {
 
 .weather-daily-container {
   display: flex;
+  gap: 32px;
 }
