@@ -23,9 +23,9 @@ class WeatherDailyView {
       `http://openweathermap.org/img/wn/${weatherDaily.weather.icon}@2x.png`
     );
     const tempHigh = DOMManipulation.createElementWithClass("div", "temp-high");
-    tempHigh.textContent = `${weatherDaily.tempHigh} °C`;
+    tempHigh.textContent = `${Math.round(weatherDaily.tempHigh)} °C`;
     const tempLow = DOMManipulation.createElementWithClass("div", "temp-low");
-    tempLow.textContent = `${weatherDaily.tempLow} °C`;
+    tempLow.textContent = `${Math.round(weatherDaily.tempLow)} °C`;
 
     card.appendChild(dayText);
     card.appendChild(img);

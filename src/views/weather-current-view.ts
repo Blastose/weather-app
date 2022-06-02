@@ -69,7 +69,7 @@ class WeatherCurrentView {
       "img",
       "current-temp-img"
     );
-    currentTemp.textContent = `${weatherCurrent.temp} °C`;
+    currentTemp.textContent = `${Math.round(weatherCurrent.temp)} °C`;
     imgCurrent.setAttribute(
       "src",
       `http://openweathermap.org/img/wn/${weatherCurrent.weather.icon}@2x.png`
