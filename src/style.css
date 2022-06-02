@@ -9,7 +9,7 @@ body {
   margin-left: auto;
   margin-right: auto;
 
-  padding: 0px 64px;
+  padding: 0px 16px;
 
   display: flex;
   flex-direction: column;
@@ -67,12 +67,15 @@ body {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: 1fr;
-  gap: 32px;
+  column-gap: 32px;
+
+  overflow-x: auto;
 }
 
 .weather-daily-card {
   display: flex;
   flex-direction: column;
+  min-width: 80px;
 }
 
 .day-text {
@@ -110,5 +113,9 @@ img {
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: 1fr;
     gap: 32px;
+  }
+
+  .wrapper {
+    padding: 0px 64px;
   }
 }
