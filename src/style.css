@@ -4,7 +4,106 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.wrapper {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding: 0px 64px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section-text {
+  font-size: 22px;
+}
+
+.weather-current-container {
+  background-color: rgb(218, 218, 218);
+}
+
+.weather-current-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.location-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.city-text {
+  font-size: 32px;
+}
+
+.country-text {
+  font-size: 20px;
+}
+
+.current-time,
+.current-weather-state {
+  color: gray;
+}
+
+.weather-current-stats {
+  display: flex;
+  flex-direction: column;
+}
+
+.current-temp {
+  font-size: 32px;
+  font-weight: bold;
+}
+
 .weather-daily-container {
   display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.weather-daily-content {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 1fr;
   gap: 32px;
+}
+
+.weather-daily-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.day-text {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.temp-high {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.temp-low {
+  font-size: 16px;
+  color: gray;
+}
+
+img {
+  max-width: 100%;
+}
+
+.weather-hourly-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media only screen and (min-width: 800px) {
+  .weather-daily-content {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: 1fr;
+    gap: 32px;
+  }
 }

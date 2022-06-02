@@ -62,3 +62,4 @@ const weatherAppController = new WeatherAppController(
   weatherHourlyController
 );
 weatherAppController.setup();
+// weatherAppController.setAll("Vancouver");
