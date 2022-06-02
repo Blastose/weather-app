@@ -8,6 +8,12 @@ class OpenWeatherApiWrapper {
     this.apiKey = apiKey;
   }
 
+  /**
+   * Returns the first result from OpenWeatherMap's Direct Geocoding API with the given location
+   *
+   * @param location
+   * @returns The first result of the api call to OpenWeatherMap's Geocoding API or undefined if the call failed or returns nothing
+   */
   async getGeocodingInfo(location: string): Promise<Geocoding | undefined> {
     try {
       const response = await fetch(

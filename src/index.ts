@@ -16,12 +16,22 @@ const openWeatherApiWrapper = new OpenWeatherApiWrapper(
   "1adba23387b35ccba4bd08e59faec2cf"
 );
 
-const weatherCurrentModel = new WeatherCurrent(new Date(), -1, -1, -1, {
-  id: -1,
-  main: "N/A",
-  description: "N/A",
-  icon: "N/A",
-});
+const weatherCurrentModel = new WeatherCurrent(
+  new Date(),
+  -1,
+  -1,
+  -1,
+  {
+    id: -1,
+    main: "N/A",
+    description: "N/A",
+    icon: "N/A",
+  },
+  {
+    city: "N/A",
+    country: "N/A",
+  }
+);
 const weatherCurrentView = new WeatherCurrentView();
 const weatherCurrentController = new WeatherCurrentController(
   weatherCurrentModel,

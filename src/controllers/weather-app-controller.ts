@@ -3,7 +3,12 @@ import LocationInputView from "../views/weather-location-input-view";
 import WeatherCurrentController from "./weather-current-controller";
 import { fromUnixTime } from "date-fns";
 import WeatherCurrent from "../models/weather-current";
-import { OneCall, Daily, Hourly } from "../models/openweather-api-interfaces";
+import {
+  OneCall,
+  Daily,
+  Hourly,
+  Geocoding,
+} from "../models/openweather-api-interfaces";
 import WeatherDailyController from "./weather-daily-controller";
 import WeatherDaily from "../models/weather-daily";
 import WeatherHourlyController from "./weather-hourly-controller";
@@ -64,21 +69,26 @@ class WeatherAppController {
       );
       if (weatherData) {
         console.log(weatherData);
-        this.setCurrentWeatherInfo(weatherData);
+        this.setCurrentWeatherInfo(geocoding, weatherData);
         this.setDailyWeatherInfo(weatherData);
         this.setHourlyWeatherInfo(weatherData);
       }
     }
   }
 
-  async setCurrentWeatherInfo(weatherData: OneCall) {
+  async setCurrentWeatherInfo(geocoding: Geocoding, weatherData: OneCall) {
     this.weatherCurrentController.weatherCurrentModel.update(
       new WeatherCurrent(
         fromUnixTime(weatherData.current.dt),
         weatherData.current.temp,
         weatherData.current.humidity,
         weatherData.current.wind_speed,
-        weatherData.current.weather[0]
+        weatherData.current.weather[0],
+        {
+          city: geocoding.name,
+          country: geocoding.country,
+          state: geocoding.state,
+        }
       )
     );
   }

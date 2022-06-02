@@ -9,6 +9,9 @@ class WeatherCurrentView {
 
   displayWeatherInfo(weatherCurrent: WeatherCurrent) {
     this.view.innerText = `
+    Location: ${weatherCurrent.location.city}, ${
+      weatherCurrent.location.state ? weatherCurrent.location.state : ""
+    } ${weatherCurrent.location.country}
     Temp: ${weatherCurrent.temp} °C
     Humidity: ${weatherCurrent.humidity}%
     Weather condtion: ${weatherCurrent.weather.description}

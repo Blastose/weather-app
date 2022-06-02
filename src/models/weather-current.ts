@@ -1,11 +1,18 @@
 import { Weather } from "./openweather-api-interfaces";
 
+interface Location {
+  city: string;
+  country: string;
+  state?: string;
+}
+
 class WeatherCurrent {
   time: Date;
   temp: number;
   humidity: number;
   windSpeed: number;
   weather: Weather;
+  location: Location;
 
   onUpdate?: (weatherCurrent: WeatherCurrent) => void;
 
@@ -14,21 +21,21 @@ class WeatherCurrent {
     temp: number,
     humidity: number,
     windSpeed: number,
-    weather: Weather
+    weather: Weather,
+    location: Location
   ) {
     this.time = time;
     this.temp = temp;
     this.humidity = humidity;
     this.windSpeed = windSpeed;
     this.weather = weather;
+    this.location = location;
   }
 
   update(newWeatherCurrent: WeatherCurrent) {
-    this.time = newWeatherCurrent.time;
-    this.temp = newWeatherCurrent.temp;
-    this.humidity = newWeatherCurrent.humidity;
-    this.windSpeed = newWeatherCurrent.windSpeed;
-    this.weather = newWeatherCurrent.weather;
+    const updateFunction = this.onUpdate;
+    Object.assign(this, newWeatherCurrent);
+    this.onUpdate = updateFunction;
 
     if (this.onUpdate) {
       this.onUpdate(this);
