@@ -71,7 +71,6 @@ class WeatherAppController {
     }
   }
 
-  // TODO Change to take param of OneCall
   async setCurrentWeatherInfo(weatherData: OneCall) {
     this.weatherCurrentController.weatherCurrentModel.update(
       new WeatherCurrent(
