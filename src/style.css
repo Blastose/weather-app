@@ -90,6 +90,11 @@ body {
   color: gray;
 }
 
+.temp-high,
+.temp-low {
+  text-align: center;
+}
+
 img {
   max-width: 100%;
 }

@@ -1,34 +1,49 @@
 import WeatherDailyList from "../models/weather-daily-list";
 import WeatherDaily from "../models/weather-daily";
 import { format } from "date-fns";
+import DOMManipulation from "../models/DomManipulation";
 
 class WeatherDailyView {
-  view: HTMLElement;
+  content: HTMLElement;
 
   constructor() {
-    this.view = document.querySelector(".weather-daily-container")!;
+    this.content = document.querySelector(".weather-daily-content")!;
   }
 
   makeDailyCard(weatherDaily: WeatherDaily): HTMLElement {
-    const card = document.createElement("div");
-    card.innerText = `
-    Day: ${format(weatherDaily.time, "EEEE")}
-    High: ${weatherDaily.tempHigh} °C
-    Low: ${weatherDaily.tempLow} °C
-    Weather condition: ${weatherDaily.weather.description}
-    `;
+    const card = DOMManipulation.createElementWithClass(
+      "div",
+      "weather-daily-card"
+    );
+    const dayText = DOMManipulation.createElementWithClass("div", "day-text");
+    dayText.textContent = `${format(weatherDaily.time, "EEEE")}`;
+    const img = DOMManipulation.createElementWithClass("img", "img-daily");
+    img.setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${weatherDaily.weather.icon}@2x.png`
+    );
+    const tempHigh = DOMManipulation.createElementWithClass("div", "temp-high");
+    tempHigh.textContent = `${weatherDaily.tempHigh} °C`;
+    const tempLow = DOMManipulation.createElementWithClass("div", "temp-low");
+    tempLow.textContent = `${weatherDaily.tempLow} °C`;
+
+    card.appendChild(dayText);
+    card.appendChild(img);
+    card.appendChild(tempHigh);
+    card.appendChild(tempLow);
+
     return card;
   }
 
-  clearView() {
-    this.view.replaceChildren();
+  clearContent() {
+    this.content.replaceChildren();
   }
 
   displayDailyInfo(weatherDailyList: WeatherDailyList) {
-    this.clearView();
+    this.clearContent();
     weatherDailyList.weatherDailyList.forEach((weatherDaily) => {
       const card = this.makeDailyCard(weatherDaily);
-      this.view.appendChild(card);
+      this.content.appendChild(card);
     });
   }
 }
