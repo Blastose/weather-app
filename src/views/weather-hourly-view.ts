@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 import WeatherHourly from "../models/weather-hourly";
 import WeatherHourlyList from "../models/weather-hourly-list";
-import DOMManipulation from "../models/DomManipulation";
+import DOMManipulation from "../models/dom-manipulation";
 
 class WeatherHourlyView {
   content: HTMLElement;

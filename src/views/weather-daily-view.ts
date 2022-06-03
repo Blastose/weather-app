@@ -1,7 +1,7 @@
 import WeatherDailyList from "../models/weather-daily-list";
 import WeatherDaily from "../models/weather-daily";
 import { format } from "date-fns";
-import DOMManipulation from "../models/DomManipulation";
+import DOMManipulation from "../models/dom-manipulation";
 
 class WeatherDailyView {
   content: HTMLElement;

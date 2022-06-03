@@ -1,5 +1,5 @@
 import WeatherCurrent from "../models/weather-current";
-import DOMManipulation from "../models/DomManipulation";
+import DOMManipulation from "../models/dom-manipulation";
 import { format } from "date-fns";
 
 class WeatherCurrentView {
