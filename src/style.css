@@ -5,7 +5,24 @@ body {
   background-color: rgb(246, 248, 255);
 }
 
-.wrapper {
+.header {
+  background-color: rgb(35, 35, 58);
+  color: white;
+}
+
+.header .wrapper {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 0px;
+}
+
+.container > .wrapper {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -25,6 +42,7 @@ body {
   background-color: rgb(181, 201, 255);
   border-radius: 8px;
   padding: 16px;
+  margin-top: 32px;
 }
 
 .weather-current-content {
@@ -199,7 +217,7 @@ img {
     justify-content: space-between;
   }
 
-  .wrapper {
+  .container > .wrapper {
     padding: 0px 64px;
   }
 }
