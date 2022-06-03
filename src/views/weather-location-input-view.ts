@@ -1,8 +1,10 @@
 class LocationInputView {
   input: HTMLInputElement;
+  searchButton: HTMLImageElement;
 
   constructor() {
     this.input = document.querySelector("#location")!;
+    this.searchButton = document.querySelector(".search-icon")!;
   }
 
   bindSearch(handler: (location: string) => void) {
@@ -10,6 +12,9 @@ class LocationInputView {
       if (event.key === "Enter") {
         handler(this.input.value);
       }
+    });
+    this.searchButton.addEventListener("click", () => {
+      handler(this.input.value);
     });
   }
 }

@@ -5,9 +5,13 @@ import DOMManipulation from "../models/DomManipulation";
 
 class WeatherHourlyView {
   content: HTMLElement;
+  sectionText: HTMLElement;
 
   constructor() {
     this.content = document.querySelector(".weather-hourly-content")!;
+    this.sectionText = document.querySelector(
+      ".weather-hourly-container > .section-text"
+    )!;
   }
 
   makeHourlyCard(weatherHourly: WeatherHourly): HTMLElement {
@@ -43,6 +47,7 @@ class WeatherHourlyView {
 
   displayDailyInfo(weatherHourlyList: WeatherHourlyList) {
     this.clearView();
+    this.sectionText.textContent = "Hourly";
 
     for (let i = 0; i < 24; i++) {
       const weatherHourly = weatherHourlyList.weatherHourlyList[i];

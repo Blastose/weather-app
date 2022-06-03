@@ -5,9 +5,13 @@ import DOMManipulation from "../models/DomManipulation";
 
 class WeatherDailyView {
   content: HTMLElement;
+  sectionText: HTMLElement;
 
   constructor() {
     this.content = document.querySelector(".weather-daily-content")!;
+    this.sectionText = document.querySelector(
+      ".weather-daily-container > .section-text"
+    )!;
   }
 
   makeDailyCard(weatherDaily: WeatherDaily): HTMLElement {
@@ -41,6 +45,7 @@ class WeatherDailyView {
 
   displayDailyInfo(weatherDailyList: WeatherDailyList) {
     this.clearContent();
+    this.sectionText.textContent = "Daily";
     weatherDailyList.weatherDailyList.forEach((weatherDaily) => {
       const card = this.makeDailyCard(weatherDaily);
       this.content.appendChild(card);

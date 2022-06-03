@@ -25,7 +25,9 @@ body {
 .location-input-container {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
+  width: 100%;
 }
 
 input#location {
@@ -33,6 +35,7 @@ input#location {
   background-color: rgba(135, 135, 219, 0.288);
   padding: 6px 10px;
   border-radius: 8px;
+  width: 40%;
 }
 
 input#location:focus {
@@ -100,6 +103,7 @@ input#location:focus {
   flex-direction: column;
 }
 
+.title,
 .current-temp {
   font-size: 32px;
   font-weight: bold;
@@ -121,6 +125,10 @@ input#location:focus {
   background-color: rgb(170, 204, 255);
   padding: 6px;
   border-radius: 8px;
+}
+
+.weather-daily-content:empty {
+  display: none;
 }
 
 .weather-daily-card {
@@ -215,6 +223,10 @@ input#location:focus {
 .weather-daily-content,
 .weather-hourly-content {
   box-shadow: 0px 0px 7px -4px rgb(207, 211, 221);
+}
+
+.search-icon {
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 800px) {
