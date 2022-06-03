@@ -1,6 +1,9 @@
 import WeatherCurrent from "../models/weather-current";
 import DOMManipulation from "../models/dom-manipulation";
 import { format } from "date-fns";
+import * as countries from "i18n-iso-countries";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 
 class WeatherCurrentView {
   view: HTMLElement;
@@ -36,7 +39,10 @@ class WeatherCurrentView {
       "country-text"
     );
     cityText.textContent = `${weatherCurrent.location.city}, ${weatherCurrent.location.state}`;
-    countryText.textContent = `${weatherCurrent.location.country}`;
+    countryText.textContent = `${countries.getName(
+      weatherCurrent.location.country,
+      "EN"
+    )}`;
     locationText.appendChild(cityText);
     locationText.appendChild(countryText);
 
@@ -50,7 +56,7 @@ class WeatherCurrentView {
     );
     currentTime.textContent = `${format(
       weatherCurrent.time,
-      "MMMM do, iiii, p"
+      "MMMM do, iiii, p O"
     )}`;
     const currentWeatherState = DOMManipulation.createElementWithClass(
       "div",
