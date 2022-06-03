@@ -24,7 +24,7 @@ class WeatherHourlyView {
     const img = DOMManipulation.createElementWithClass("img", "img-hourly");
     img.setAttribute(
       "src",
-      `http://openweathermap.org/img/wn/${weatherHourly.weather.icon}@2x.png`
+      `https://openweathermap.org/img/wn/${weatherHourly.weather.icon}@2x.png`
     );
     const temp = DOMManipulation.createElementWithClass("div", "temp");
     temp.textContent = `${Math.round(weatherHourly.temp)} °C`;

@@ -24,7 +24,7 @@ class WeatherDailyView {
     const img = DOMManipulation.createElementWithClass("img", "img-daily");
     img.setAttribute(
       "src",
-      `http://openweathermap.org/img/wn/${weatherDaily.weather.icon}@2x.png`
+      `https://openweathermap.org/img/wn/${weatherDaily.weather.icon}@2x.png`
     );
     const tempHigh = DOMManipulation.createElementWithClass("div", "temp-high");
     tempHigh.textContent = `${Math.round(weatherDaily.tempHigh)} °C`;

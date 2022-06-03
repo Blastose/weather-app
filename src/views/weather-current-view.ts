@@ -86,7 +86,7 @@ class WeatherCurrentView {
     currentTemp.textContent = `${Math.round(weatherCurrent.temp)} °C`;
     imgCurrent.setAttribute(
       "src",
-      `http://openweathermap.org/img/wn/${weatherCurrent.weather.icon}@2x.png`
+      `https://openweathermap.org/img/wn/${weatherCurrent.weather.icon}@2x.png`
     );
     stats.appendChild(currentTemp);
     stats.appendChild(imgCurrent);
