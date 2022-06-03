@@ -8,14 +8,33 @@
   <script defer src="runtime.bundle.js"></script><script defer src="index.bundle.js"></script></head>
   <body>
     <div class="container">
-      <div class="title">Weather App</div>
-      <div class="location-input-container">
-        <label for="location">Location:</label>
-        <input type="text" name="location" id="location" />
+      <header class="header">
+        <div class="wrapper">
+          <div class="location-input-container">
+            <img src=63ecb3a6f065414fc087.svg alt="">
+            <input
+              type="text"
+              name="location"
+              id="location"
+              placeholder="Enter location"
+            />
+          </div>
+        </div>
+      </header>
+
+      <div class="wrapper">
+        <div class="weather-current-container"></div>
+
+        <div class="weather-daily-container">
+          <div class="section-text">Daily</div>
+          <div class="weather-daily-content"></div>
+        </div>
+
+        <div class="weather-hourly-container">
+          <div class="section-text">Hourly</div>
+          <div class="weather-hourly-content"></div>
+        </div>
       </div>
-      <div class="weather-current-container"></div>
-      <div class="weather-daily-container"></div>
-      <div class="weather-hourly-container"></div>
     </div>
   </body>
 </html>
