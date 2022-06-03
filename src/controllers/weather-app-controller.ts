@@ -72,7 +72,14 @@ class WeatherAppController {
         this.setCurrentWeatherInfo(geocoding, weatherData);
         this.setDailyWeatherInfo(weatherData);
         this.setHourlyWeatherInfo(weatherData);
+        this.locationInputView.clearErrorMessage();
+      } else {
+        this.locationInputView.setErrorMessage(
+          "* Unable to find get weather data for specified location"
+        );
       }
+    } else {
+      this.locationInputView.setErrorMessage("* Unable to find location");
     }
   }
 
