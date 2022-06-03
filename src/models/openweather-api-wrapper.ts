@@ -17,7 +17,7 @@ class OpenWeatherApiWrapper {
   async getGeocodingInfo(location: string): Promise<Geocoding | undefined> {
     try {
       const response = await fetch(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${LocationParser.parseLocation(
+        `https://api.openweathermap.org/geo/1.0/direct?q=${LocationParser.parseLocation(
           location
         )}&appid=${this.apiKey}`,
         { mode: "cors" }
