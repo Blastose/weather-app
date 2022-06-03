@@ -44,7 +44,10 @@ class WeatherCurrentView {
       "div",
       "current-time"
     );
-    currentTime.textContent = `${format(weatherCurrent.time, "iiii, p")}`;
+    currentTime.textContent = `${format(
+      weatherCurrent.time,
+      "MMMM do, iiii, p"
+    )}`;
     const currentWeatherState = DOMManipulation.createElementWithClass(
       "div",
       "current-weather-state"
