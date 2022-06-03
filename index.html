@@ -11,7 +11,8 @@
       <header class="header">
         <div class="wrapper">
           <div class="location-input-container">
-            <img src=63ecb3a6f065414fc087.svg alt="">
+            <img src=63ecb3a6f065414fc087.svg alt=""
+            class="search-icon">
             <input
               type="text"
               name="location"
@@ -19,19 +20,43 @@
               placeholder="Enter location"
             />
           </div>
+          <div class="location-error-message"></div>
         </div>
       </header>
 
       <div class="wrapper">
-        <div class="weather-current-container"></div>
+        <div class="weather-current-container">
+          <span class="title">Weather</span>
+          <p>
+            Enter a location in the search bar above and receive current, daily,
+            and hourly weather information.
+          </p>
+          <p>
+            Location format:
+            <br />
+            City, country (optional)
+            <br />
+            E.g.
+            <br />
+            Vancouver, Canada
+            <br />
+            Vancouver, CA
+            <br />
+            Vancouver, United States of America
+            <br />
+            Vancouver, US
+            <br />
+            Vancouver, USA
+          </p>
+        </div>
 
         <div class="weather-daily-container">
-          <div class="section-text">Daily</div>
+          <div class="section-text"></div>
           <div class="weather-daily-content"></div>
         </div>
 
         <div class="weather-hourly-container">
-          <div class="section-text">Hourly</div>
+          <div class="section-text"></div>
           <div class="weather-hourly-content"></div>
         </div>
       </div>
