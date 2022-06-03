@@ -40,6 +40,10 @@ class WeatherCurrentView {
     locationText.appendChild(cityText);
     locationText.appendChild(countryText);
 
+    const currentMiscInfo = DOMManipulation.createElementWithClass(
+      "div",
+      "current-misc-info"
+    );
     const currentTime = DOMManipulation.createElementWithClass(
       "div",
       "current-time"
@@ -55,8 +59,9 @@ class WeatherCurrentView {
     currentWeatherState.textContent = `${weatherCurrent.weather.description}`;
 
     info.appendChild(locationText);
-    info.appendChild(currentTime);
-    info.appendChild(currentWeatherState);
+    currentMiscInfo.appendChild(currentTime);
+    currentMiscInfo.appendChild(currentWeatherState);
+    info.appendChild(currentMiscInfo);
 
     content.appendChild(info);
 

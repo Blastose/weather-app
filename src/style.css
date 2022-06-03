@@ -75,6 +75,13 @@ input#location:focus {
   flex-direction: column;
 }
 
+.weather-current-info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+}
+
 .current-temp-img {
   width: 128px;
 }
